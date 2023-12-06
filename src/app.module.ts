@@ -3,10 +3,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { FilmModule } from './film/film.module';
 import { SpeciesModule } from './species/species.module';
+import { VehicleService } from './vehicle/vehicle.service';
+import { VehicleController } from './vehicle/vehicle.controller';
+import { VehicleModule } from './vehicle/vehicle.module';
 
 @Module({
-  imports: [FilmModule, SpeciesModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [FilmModule, SpeciesModule, VehicleModule],
+  controllers: [AppController, VehicleController],
+  providers: [AppService, VehicleService],
 })
 export class AppModule {}
