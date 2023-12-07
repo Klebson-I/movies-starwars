@@ -13,6 +13,8 @@ import { PlanetModule } from './planet/planet.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Film } from './Database/Film/film.entity';
 import { FilmRepository } from './Database/Film/Film.repository';
+import { Species } from './Database/Species/Species.entity';
+import { SpeciesRepository } from './Database/Species/Species.repository';
 
 @Module({
   imports: [
@@ -27,9 +29,9 @@ import { FilmRepository } from './Database/Film/Film.repository';
       useNewUrlParser: true,
       synchronize: true,
       database: 'movies',
-      entities: [Film],
+      entities: [Film, Species],
     }),
-    TypeOrmModule.forFeature([FilmRepository]),
+    TypeOrmModule.forFeature([FilmRepository, SpeciesRepository]),
   ],
   controllers: [AppController, VehicleController, PlanetController],
   providers: [AppService, VehicleService, PlanetService],
