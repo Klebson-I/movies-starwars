@@ -13,6 +13,8 @@ import { Species } from './Database/Species/Species.entity';
 import { SpeciesRepository } from './Database/Species/Species.repository';
 import { VehicleRepository } from './Database/Vehicle/Vehicle.repository';
 import { Vehicle } from './Database/Vehicle/Vehicle.entity';
+import { Starship } from './Database/Starship/Starship.entity';
+import { StarshipRepository } from './Database/Starship/StarshipEntity.repository';
 
 @Module({
   imports: [
@@ -27,12 +29,13 @@ import { Vehicle } from './Database/Vehicle/Vehicle.entity';
       useNewUrlParser: true,
       synchronize: true,
       database: 'movies',
-      entities: [Film, Species, Vehicle],
+      entities: [Film, Species, Vehicle, Starship],
     }),
     TypeOrmModule.forFeature([
       FilmRepository,
       SpeciesRepository,
       VehicleRepository,
+      StarshipRepository,
     ]),
   ],
   controllers: [AppController],
