@@ -1,4 +1,5 @@
 import { Film } from 'src/Database/Film/film.entity';
+import { Planet } from 'src/Database/Planet/Planet.entity';
 import { Species } from 'src/Database/Species/Species.entity';
 import { Starship } from 'src/Database/Starship/Starship.entity';
 import { Vehicle } from 'src/Database/Vehicle/Vehicle.entity';
@@ -30,9 +31,17 @@ export interface GetStarshipsDto {
   };
 }
 
+export interface GetPlanetsDto {
+  data: {
+    results: Planet[];
+    next: string;
+  };
+}
+
 export interface StarApiHandlerInterface {
   getFilms: () => Promise<Film[]>;
   getSpecies: () => Promise<Species[]>;
   getVehicles: () => Promise<Vehicle[]>;
   getStarships: () => Promise<Starship[]>;
+  getPlanets: () => Promise<Planet[]>;
 }
