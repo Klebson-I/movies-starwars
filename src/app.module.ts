@@ -17,6 +17,7 @@ import { Starship } from './Database/Starship/Starship.entity';
 import { StarshipRepository } from './Database/Starship/StarshipEntity.repository';
 import { Planet } from './Database/Planet/Planet.entity';
 import { PlanetRepository } from './Database/Planet/Planet.repository';
+import { CleanupModule } from './Cleanup/cleanup.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { PlanetRepository } from './Database/Planet/Planet.repository';
     VehicleModule,
     StarshipModule,
     PlanetModule,
+    CleanupModule,
     TypeOrmModule.forRoot({
       type: 'mongodb',
       url: 'mongodb+srv://lukaszkleba:devil1234@cluster0.xerdy.mongodb.net/?retryWrites=true&w=majority',
