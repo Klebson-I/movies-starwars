@@ -16,7 +16,6 @@ export class DataHandler {
       const entities = await this.repository.find();
       if (!entities.length) {
         const apiData = await this.getFromApi();
-        console.log(apiData);
         await this.saveToCache(apiData);
         return apiData;
       }
