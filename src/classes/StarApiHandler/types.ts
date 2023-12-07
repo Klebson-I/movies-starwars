@@ -10,6 +10,7 @@ export interface GetFilmsDto {
 export interface GetSpeciesDto {
   data: {
     results: Species[];
+    next: string;
   };
 }
 
