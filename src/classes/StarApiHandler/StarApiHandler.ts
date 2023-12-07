@@ -24,6 +24,7 @@ export class StarApiHandler implements StarApiHandlerInterface {
       this.records.push(...species);
       return this.getSpecies(next);
     }
+    this.records.push(...species);
     return this.records;
   }
 
@@ -37,6 +38,7 @@ export class StarApiHandler implements StarApiHandlerInterface {
       this.records.push(...vehicles);
       return this.getVehicles(next);
     }
+    this.records.push(...vehicles);
     return this.records;
   }
 }

@@ -15,7 +15,6 @@ export class DataHandler {
       const entities = await this.repository.find();
       if (!entities.length) {
         const apiData = await this.getFromApi();
-        console.log(apiData.length);
         await this.saveToCache(apiData);
         return apiData;
       }
@@ -34,7 +33,7 @@ export class DataHandler {
       return records;
     }
     if (this.repositoryType === 'VEHICLE') {
-      const records = await starApiHandler.getSpecies();
+      const records = await starApiHandler.getVehicles();
       return records;
     }
   }

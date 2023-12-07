@@ -39,7 +39,7 @@ import { Vehicle } from './Database/Vehicle/Vehicle.entity';
       VehicleRepository,
     ]),
   ],
-  controllers: [AppController, VehicleController, PlanetController],
-  providers: [AppService, VehicleService, PlanetService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
