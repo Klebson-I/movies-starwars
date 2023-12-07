@@ -10,7 +10,7 @@ export class FilmService {
   constructor(@InjectRepository(Film) private filmRepository: FilmRepository) {}
 
   async getAllFilms() {
-    const dataHandler = new DataHandler(this.filmRepository);
+    const dataHandler = new DataHandler(this.filmRepository, 'FILM');
     const films = await dataHandler.getDataFromCache();
     return films;
   }
