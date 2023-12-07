@@ -26,6 +26,7 @@ import { FilmRepository } from './Database/Film/Film.repository';
       url: 'mongodb+srv://lukaszkleba:devil1234@cluster0.xerdy.mongodb.net/?retryWrites=true&w=majority',
       useNewUrlParser: true,
       synchronize: true,
+      database: 'movies',
       entities: [Film],
     }),
     TypeOrmModule.forFeature([FilmRepository]),
