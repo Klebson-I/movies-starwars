@@ -4,6 +4,6 @@ import { StarshipService } from './starship.service';
 
 @Module({
   controllers: [StarshipController],
-  providers: [StarshipService]
+  providers: [StarshipService],
 })
 export class StarshipModule {}
