@@ -2,6 +2,7 @@ import { StarApiHandler } from '../StarApiHandler/StarApiHandler';
 import { Film } from 'src/Database/Film/film.entity';
 import { InputRepository } from './types';
 import { Species } from 'src/Database/Species/Species.entity';
+import { Vehicle } from 'src/Database/Vehicle/Vehicle.entity';
 
 export class DataHandler {
   constructor(
@@ -31,9 +32,13 @@ export class DataHandler {
       const records = await starApiHandler.getSpecies();
       return records;
     }
+    if (this.repositoryType === 'VEHICLE') {
+      const records = await starApiHandler.getVehicles();
+      return records;
+    }
   }
 
-  async saveToCache(records: Film[] | Species[]) {
+  async saveToCache(records: Film[] | Species[] | Vehicle[]) {
     await this.repository.insertMany(records);
   }
 }
