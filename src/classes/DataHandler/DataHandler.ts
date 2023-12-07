@@ -41,6 +41,10 @@ export class DataHandler {
       const records = await starApiHandler.getStarships();
       return records;
     }
+    if (this.repositoryType === 'PLANET') {
+      const records = await starApiHandler.getPlanets();
+      return records;
+    }
   }
 
   async saveToCache(records: Film[] | Species[] | Vehicle[] | Starship[]) {
