@@ -3,6 +3,7 @@ import {
   GetFilmDto,
   GetFilmsDto,
   GetPlanetsDto,
+  GetSingleSpeciesDto,
   GetSpeciesDto,
   GetStarshipsDto,
   StarApiHandlerInterface,
@@ -84,6 +85,14 @@ export class StarApiHandler implements StarApiHandlerInterface {
       method: 'GET',
       url: `https://swapi.dev/api/films/${id}/`,
     })) as GetFilmDto;
+    return data;
+  }
+
+  async getSingleSpecies(id: string) {
+    const { data } = (await axios({
+      method: 'GET',
+      url: `https://swapi.dev/api/species/${id}/`,
+    })) as GetSingleSpeciesDto;
     return data;
   }
 }
