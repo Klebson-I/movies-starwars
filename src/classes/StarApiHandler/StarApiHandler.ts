@@ -2,6 +2,7 @@ import axios from 'axios';
 import {
   GetFilmDto,
   GetFilmsDto,
+  GetPlanetDto,
   GetPlanetsDto,
   GetSingleSpeciesDto,
   GetSpeciesDto,
@@ -111,6 +112,14 @@ export class StarApiHandler implements StarApiHandlerInterface {
       method: 'GET',
       url: `https://swapi.dev/api/starships/${id}/`,
     })) as GetStarshipDto;
+    return data;
+  }
+
+  async getSinglePlanet(id: string) {
+    const { data } = (await axios({
+      method: 'GET',
+      url: `https://swapi.dev/api/planets/${id}/`,
+    })) as GetPlanetDto;
     return data;
   }
 }
