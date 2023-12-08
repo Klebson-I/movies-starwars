@@ -54,6 +54,10 @@ export interface GetPlanetsDto {
   };
 }
 
+export interface GetPlanetDto {
+  data: Planet;
+}
+
 export interface StarApiHandlerInterface {
   getFilms: () => Promise<Film[]>;
   getSpecies: () => Promise<Species[]>;
@@ -64,4 +68,5 @@ export interface StarApiHandlerInterface {
   getSingleSpecies: (id: string) => Promise<Species>;
   getSingleVehicle: (id: string) => Promise<Vehicle>;
   getSingleStarship: (id: string) => Promise<Starship>;
+  getSinglePlanet: (id: string) => Promise<Planet>;
 }

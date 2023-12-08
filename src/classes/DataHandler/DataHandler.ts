@@ -4,6 +4,7 @@ import { InputRepository } from './types';
 import { Species } from 'src/Database/Species/Species.entity';
 import { Vehicle } from 'src/Database/Vehicle/Vehicle.entity';
 import { Starship } from 'src/Database/Starship/Starship.entity';
+import { Planet } from 'src/Database/Planet/Planet.entity';
 
 export class DataHandler {
   constructor(
@@ -55,6 +56,10 @@ export class DataHandler {
       const records = await starApiHandler.getSingleStarship(id);
       return records;
     }
+    if (this.repositoryType === 'PLANET') {
+      const records = await starApiHandler.getSinglePlanet(id);
+      return records;
+    }
   }
 
   async getFromApi() {
@@ -85,7 +90,7 @@ export class DataHandler {
     await this.repository.insertMany(records);
   }
 
-  async saveSingleCache(records: Film | Species | Vehicle | Starship) {
+  async saveSingleCache(records: Film | Species | Vehicle | Starship | Planet) {
     await this.repository.insert(records);
   }
 }
