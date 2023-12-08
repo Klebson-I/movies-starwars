@@ -21,6 +21,10 @@ export interface GetSpeciesDto {
   };
 }
 
+export interface GetSingleSpeciesDto {
+  data: Species;
+}
+
 export interface GetVehiclesDto {
   data: {
     results: Vehicle[];
@@ -49,4 +53,5 @@ export interface StarApiHandlerInterface {
   getStarships: () => Promise<Starship[]>;
   getPlanets: () => Promise<Planet[]>;
   getSingleFilm: (id: string) => Promise<Film>;
+  getSingleSpecies: (id: string) => Promise<Species>;
 }
