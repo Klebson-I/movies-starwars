@@ -43,6 +43,10 @@ export interface GetStarshipsDto {
   };
 }
 
+export interface GetStarshipDto {
+  data: Starship;
+}
+
 export interface GetPlanetsDto {
   data: {
     results: Planet[];
@@ -59,4 +63,5 @@ export interface StarApiHandlerInterface {
   getSingleFilm: (id: string) => Promise<Film>;
   getSingleSpecies: (id: string) => Promise<Species>;
   getSingleVehicle: (id: string) => Promise<Vehicle>;
+  getSingleStarship: (id: string) => Promise<Starship>;
 }

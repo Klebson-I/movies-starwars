@@ -51,6 +51,10 @@ export class DataHandler {
       const records = await starApiHandler.getSingleVehicle(id);
       return records;
     }
+    if (this.repositoryType === 'STARSHIP') {
+      const records = await starApiHandler.getSingleStarship(id);
+      return records;
+    }
   }
 
   async getFromApi() {
@@ -81,7 +85,7 @@ export class DataHandler {
     await this.repository.insertMany(records);
   }
 
-  async saveSingleCache(records: Film | Species | Vehicle) {
+  async saveSingleCache(records: Film | Species | Vehicle | Starship) {
     await this.repository.insert(records);
   }
 }

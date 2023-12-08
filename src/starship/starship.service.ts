@@ -16,5 +16,12 @@ export class StarshipService {
     return vehicles;
   }
 
-  async getStarship(id: string) {}
+  async getStarship(id: string) {
+    const dataHandler = new DataHandler(this.starshipRepository, 'STARSHIP');
+    const starship = await dataHandler.getSingleDataFromCache(
+      `https://swapi.dev/api/starships/${id}/`,
+      id,
+    );
+    return starship;
+  }
 }
