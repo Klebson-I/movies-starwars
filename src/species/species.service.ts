@@ -16,5 +16,12 @@ export class SpeciesService {
     return species;
   }
 
-  async getSpecies(id: string) {}
+  async getSpecies(id: string) {
+    const dataHandler = new DataHandler(this.speciesRepository, 'SPECIES');
+    const species = await dataHandler.getSingleDataFromCache(
+      `https://swapi.dev/api/species/${id}/`,
+      id,
+    );
+    return species;
+  }
 }
