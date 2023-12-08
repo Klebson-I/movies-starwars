@@ -2,6 +2,7 @@ import axios from 'axios';
 import {
   GetFilmDto,
   GetFilmsDto,
+  GetPeopleDto,
   GetPlanetDto,
   GetPlanetsDto,
   GetSingleSpeciesDto,
@@ -15,9 +16,11 @@ import { Species } from '../../Database/Species/Species.entity';
 import { Vehicle } from '../../Database/Vehicle/Vehicle.entity';
 import { Starship } from '../../Database/Starship/Starship.entity';
 import { Planet } from '../../Database/Planet/Planet.entity';
+import { People } from 'src/Database/People/People.entity';
 
 export class StarApiHandler implements StarApiHandlerInterface {
-  private records: Species[] & Vehicle[] & Starship[] & Planet[] = [];
+  private records: Species[] & Vehicle[] & Starship[] & Planet[] & People[] =
+    [];
   async getFilms() {
     const { data } = (await axios({
       method: 'GET',
@@ -80,6 +83,20 @@ export class StarApiHandler implements StarApiHandlerInterface {
       return this.getPlanets(next);
     }
     this.records.push(...planets);
+    return this.records;
+  }
+
+  async getPeople(nextUrl?: string) {
+    const { data } = (await axios({
+      method: 'GET',
+      url: nextUrl || 'https://swapi.dev/api/people',
+    })) as GetPeopleDto;
+    const { results: people, next } = data;
+    if (next) {
+      this.records.push(...people);
+      return this.getPeople(next);
+    }
+    this.records.push(...people);
     return this.records;
   }
 

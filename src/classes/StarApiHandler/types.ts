@@ -1,3 +1,4 @@
+import { People } from 'src/Database/People/People.entity';
 import { Film } from '../../Database/Film/film.entity';
 import { Planet } from '../../Database/Planet/Planet.entity';
 import { Species } from '../../Database/Species/Species.entity';
@@ -54,6 +55,13 @@ export interface GetPlanetsDto {
   };
 }
 
+export interface GetPeopleDto {
+  data: {
+    results: People[];
+    next: string;
+  };
+}
+
 export interface GetPlanetDto {
   data: Planet;
 }
@@ -69,4 +77,5 @@ export interface StarApiHandlerInterface {
   getSingleVehicle: (id: string) => Promise<Vehicle>;
   getSingleStarship: (id: string) => Promise<Starship>;
   getSinglePlanet: (id: string) => Promise<Planet>;
+  getPeople: (id: string) => Promise<People[]>;
 }
