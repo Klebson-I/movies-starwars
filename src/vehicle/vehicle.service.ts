@@ -16,5 +16,12 @@ export class VehicleService {
     return vehicles;
   }
 
-  async getVehicle(id: string) {}
+  async getVehicle(id: string) {
+    const dataHandler = new DataHandler(this.vehicleRepository, 'VEHICLE');
+    const vehicle = await dataHandler.getSingleDataFromCache(
+      `https://swapi.dev/api/vehicles/${id}/`,
+      id,
+    );
+    return vehicle;
+  }
 }

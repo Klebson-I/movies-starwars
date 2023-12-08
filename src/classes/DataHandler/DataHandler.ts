@@ -47,6 +47,10 @@ export class DataHandler {
       const records = await starApiHandler.getSingleSpecies(id);
       return records;
     }
+    if (this.repositoryType === 'VEHICLE') {
+      const records = await starApiHandler.getSingleVehicle(id);
+      return records;
+    }
   }
 
   async getFromApi() {
@@ -77,7 +81,7 @@ export class DataHandler {
     await this.repository.insertMany(records);
   }
 
-  async saveSingleCache(records: Film | Species) {
+  async saveSingleCache(records: Film | Species | Vehicle) {
     await this.repository.insert(records);
   }
 }

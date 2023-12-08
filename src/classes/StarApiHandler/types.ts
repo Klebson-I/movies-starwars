@@ -32,6 +32,10 @@ export interface GetVehiclesDto {
   };
 }
 
+export interface GetVehicleDto {
+  data: Vehicle;
+}
+
 export interface GetStarshipsDto {
   data: {
     results: Starship[];
@@ -54,4 +58,5 @@ export interface StarApiHandlerInterface {
   getPlanets: () => Promise<Planet[]>;
   getSingleFilm: (id: string) => Promise<Film>;
   getSingleSpecies: (id: string) => Promise<Species>;
+  getSingleVehicle: (id: string) => Promise<Vehicle>;
 }
