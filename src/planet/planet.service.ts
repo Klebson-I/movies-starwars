@@ -16,5 +16,12 @@ export class PlanetService {
     return vehicles;
   }
 
-  async getPlanet(id: string) {}
+  async getPlanet(id: string) {
+    const dataHandler = new DataHandler(this.planetRepository, 'PLANET');
+    const planet = await dataHandler.getSingleDataFromCache(
+      `https://swapi.dev/api/planets/${id}/`,
+      id,
+    );
+    return planet;
+  }
 }
