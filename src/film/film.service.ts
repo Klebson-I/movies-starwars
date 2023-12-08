@@ -15,5 +15,12 @@ export class FilmService {
     return films;
   }
 
-  async getFilm(id: string) {}
+  async getFilm(id: string) {
+    const dataHandler = new DataHandler(this.filmRepository, 'FILM');
+    const film = await dataHandler.getSingleDataFromCache(
+      `https://swapi.dev/api/films/${id}/`,
+      id,
+    );
+    return film;
+  }
 }
