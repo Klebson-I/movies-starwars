@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { FilmRepository } from 'src/Database/Film/Film.repository';
+import { FilmRepository } from '../Database/Film/Film.repository';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Film } from 'src/Database/Film/Film.entity';
+import { Film } from '../Database/Film/Film.entity';
 import {} from 'typeorm';
-import { DataHandler } from 'src/classes/DataHandler/DataHandler';
+import { DataHandler } from '../classes/DataHandler/DataHandler';
 
 @Injectable()
 export class FilmService {

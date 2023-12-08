@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Species } from 'src/Database/Species/Species.entity';
-import { SpeciesRepository } from 'src/Database/Species/Species.repository';
-import { DataHandler } from 'src/classes/DataHandler/DataHandler';
+import { Species } from '../Database/Species/Species.entity';
+import { SpeciesRepository } from '../Database/Species/Species.repository';
+import { DataHandler } from '../classes/DataHandler/DataHandler';
 
 @Injectable()
 export class SpeciesService {

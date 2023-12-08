@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Starship } from 'src/Database/Starship/Starship.entity';
-import { StarshipRepository } from 'src/Database/Starship/StarshipEntity.repository';
-import { DataHandler } from 'src/classes/DataHandler/DataHandler';
+import { Starship } from '../Database/Starship/Starship.entity';
+import { StarshipRepository } from '../Database/Starship/StarshipEntity.repository';
+import { DataHandler } from '../classes/DataHandler/DataHandler';
 
 @Injectable()
 export class StarshipService {

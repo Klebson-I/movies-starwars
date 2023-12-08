@@ -1,8 +1,8 @@
-import { VehicleRepository } from 'src/Database/Vehicle/Vehicle.repository';
+import { VehicleRepository } from '../../Database/Vehicle/Vehicle.repository';
 import { FilmRepository } from '../../Database/Film/Film.repository';
 import { SpeciesRepository } from '../../Database/Species/Species.repository';
-import { StarshipRepository } from 'src/Database/Starship/StarshipEntity.repository';
-import { PlanetRepository } from 'src/Database/Planet/Planet.repository';
+import { StarshipRepository } from '../../Database/Starship/StarshipEntity.repository';
+import { PlanetRepository } from '../../Database/Planet/Planet.repository';
 
 export type InputRepository =
   | FilmRepository

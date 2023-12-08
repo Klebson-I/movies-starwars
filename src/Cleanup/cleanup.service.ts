@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { FilmRepository } from 'src/Database/Film/Film.repository';
-import { Film } from 'src/Database/Film/film.entity';
-import { Planet } from 'src/Database/Planet/Planet.entity';
-import { PlanetRepository } from 'src/Database/Planet/Planet.repository';
-import { Species } from 'src/Database/Species/Species.entity';
-import { SpeciesRepository } from 'src/Database/Species/Species.repository';
-import { Starship } from 'src/Database/Starship/Starship.entity';
-import { StarshipRepository } from 'src/Database/Starship/StarshipEntity.repository';
-import { Vehicle } from 'src/Database/Vehicle/Vehicle.entity';
-import { VehicleRepository } from 'src/Database/Vehicle/Vehicle.repository';
+import { FilmRepository } from '../Database/Film/Film.repository';
+import { Film } from '../Database/Film/film.entity';
+import { Planet } from '../Database/Planet/Planet.entity';
+import { PlanetRepository } from '../Database/Planet/Planet.repository';
+import { Species } from '../Database/Species/Species.entity';
+import { SpeciesRepository } from '../Database/Species/Species.repository';
+import { Starship } from '../Database/Starship/Starship.entity';
+import { StarshipRepository } from '../Database/Starship/StarshipEntity.repository';
+import { Vehicle } from '../Database/Vehicle/Vehicle.entity';
+import { VehicleRepository } from '../Database/Vehicle/Vehicle.repository';
 
 @Injectable()
 export class CleanupService {
