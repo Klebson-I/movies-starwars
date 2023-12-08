@@ -6,6 +6,11 @@ import {} from 'typeorm';
 import { DataHandler } from '../classes/DataHandler/DataHandler';
 import { People } from 'src/Database/People/People.entity';
 import { PeopleRepository } from 'src/Database/People/People.repository';
+import {
+  getAllPeopleNames,
+  getFilmsOpenings,
+  getMostOftenPeople,
+} from './utils';
 
 @Injectable()
 export class FilmService {
@@ -29,5 +34,10 @@ export class FilmService {
     return film;
   }
 
-  async getMostOftenPerson() {}
+  async getMostOftenPerson() {
+    const peopleNames = await getAllPeopleNames(this.peopleRepository);
+    const filmsOpenings = await getFilmsOpenings(this.filmRepository);
+    const mostOftenPersons = getMostOftenPeople(peopleNames, filmsOpenings);
+    return mostOftenPersons;
+  }
 }
