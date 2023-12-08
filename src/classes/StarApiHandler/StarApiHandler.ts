@@ -5,6 +5,7 @@ import {
   GetPlanetsDto,
   GetSingleSpeciesDto,
   GetSpeciesDto,
+  GetStarshipDto,
   GetStarshipsDto,
   GetVehicleDto,
   StarApiHandlerInterface,
@@ -102,6 +103,14 @@ export class StarApiHandler implements StarApiHandlerInterface {
       method: 'GET',
       url: `https://swapi.dev/api/vehicles/${id}/`,
     })) as GetVehicleDto;
+    return data;
+  }
+
+  async getSingleStarship(id: string) {
+    const { data } = (await axios({
+      method: 'GET',
+      url: `https://swapi.dev/api/starships/${id}/`,
+    })) as GetStarshipDto;
     return data;
   }
 }
