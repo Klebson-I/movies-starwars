@@ -11,7 +11,7 @@ export class FilmController {
   }
 
   @Get('/:id')
-  async getFilm(@Param() id: string) {
+  async getFilm(@Param('id') id: string) {
     return this.filmService.getFilm(id);
   }
 }

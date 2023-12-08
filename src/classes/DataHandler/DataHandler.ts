@@ -23,6 +23,28 @@ export class DataHandler {
     } catch (e) {}
   }
 
+  async getSingleDataFromCache(searchUrl: string, id: string) {
+    try {
+      const entities = await this.repository.find({
+        url: searchUrl,
+      });
+      if (!entities.length) {
+        const apiData = await this.getSingleFromApi(id);
+        await this.saveSingleCache(apiData);
+        return apiData;
+      }
+      return entities[0];
+    } catch (e) {}
+  }
+
+  async getSingleFromApi(id: string) {
+    const starApiHandler = new StarApiHandler();
+    if (this.repositoryType === 'FILM') {
+      const records = await starApiHandler.getSingleFilm(id);
+      return records;
+    }
+  }
+
   async getFromApi() {
     const starApiHandler = new StarApiHandler();
     if (this.repositoryType === 'FILM') {
@@ -49,5 +71,9 @@ export class DataHandler {
 
   async saveToCache(records: Film[] | Species[] | Vehicle[] | Starship[]) {
     await this.repository.insertMany(records);
+  }
+
+  async saveSingleCache(records: Film) {
+    await this.repository.insert(records);
   }
 }

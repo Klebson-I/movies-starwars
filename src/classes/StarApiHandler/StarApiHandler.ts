@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {
+  GetFilmDto,
   GetFilmsDto,
   GetPlanetsDto,
   GetSpeciesDto,
@@ -76,5 +77,13 @@ export class StarApiHandler implements StarApiHandlerInterface {
     }
     this.records.push(...planets);
     return this.records;
+  }
+
+  async getSingleFilm(id: string) {
+    const { data } = (await axios({
+      method: 'GET',
+      url: `https://swapi.dev/api/films/${id}/`,
+    })) as GetFilmDto;
+    return data;
   }
 }
