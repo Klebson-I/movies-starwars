@@ -4,8 +4,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Film } from '../Database/Film/Film.entity';
 import {} from 'typeorm';
 import { DataHandler } from '../classes/DataHandler/DataHandler';
-import { People } from 'src/Database/People/People.entity';
-import { PeopleRepository } from 'src/Database/People/People.repository';
+import { People } from '../Database/People/People.entity';
+import { PeopleRepository } from '../Database/People/People.repository';
 import {
   getAllPeopleNames,
   getCountedUniqueWords,
