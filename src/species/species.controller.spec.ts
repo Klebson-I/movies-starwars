@@ -8,6 +8,7 @@ describe('SpeciesController', () => {
   let controller: SpeciesController;
   let service: SpeciesService;
   let spyOnGetAllSpecies;
+  let spyOnGetSpecies;
 
   const speciesRepository = {
     find: jest.fn(),
@@ -27,6 +28,9 @@ describe('SpeciesController', () => {
     spyOnGetAllSpecies = jest
       .spyOn(service, 'getAllSpecies')
       .mockImplementation(async () => [new Species()]);
+    spyOnGetSpecies = jest
+      .spyOn(service, 'getSpecies')
+      .mockImplementation(async () => new Species());
   });
 
   it('Should be defined', () => {
@@ -36,5 +40,10 @@ describe('SpeciesController', () => {
   it('Should call getAllSpecies on service when getAllSpecies is called', async () => {
     await controller.getAllSpecies();
     expect(spyOnGetAllSpecies).toHaveBeenCalled();
+  });
+
+  it('Should call getSpecies on service when getSpecies is called', async () => {
+    await controller.getSpecies('1');
+    expect(spyOnGetSpecies).toHaveBeenCalled();
   });
 });

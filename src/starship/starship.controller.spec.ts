@@ -8,7 +8,7 @@ describe('StarshipController', () => {
   let controller: StarshipController;
   let service: StarshipService;
   let spyOnGetAllStarships;
-
+  let spyOnGetStarship;
   const starshipRepository = {
     find: jest.fn(),
   };
@@ -27,6 +27,9 @@ describe('StarshipController', () => {
     spyOnGetAllStarships = jest
       .spyOn(service, 'getAllStarships')
       .mockImplementation(async () => [new Starship()]);
+    spyOnGetStarship = jest
+      .spyOn(service, 'getStarship')
+      .mockImplementation(async () => new Starship());
   });
 
   it('Should be defined', () => {
@@ -36,5 +39,10 @@ describe('StarshipController', () => {
   it('Should call getAllStarships on service when getAllStarships is called', async () => {
     await controller.getAllStarships();
     expect(spyOnGetAllStarships).toHaveBeenCalled();
+  });
+
+  it('Should call getStarship on service when getStarship is called', async () => {
+    await controller.getStarship('1');
+    expect(spyOnGetStarship).toHaveBeenCalled();
   });
 });

@@ -8,6 +8,7 @@ describe('VehicleController', () => {
   let controller: VehicleController;
   let service: VehicleService;
   let spyOnGetAllVehicles;
+  let spyOnGetVehicle;
 
   const vehicleRepository = {
     find: jest.fn(),
@@ -27,6 +28,9 @@ describe('VehicleController', () => {
     spyOnGetAllVehicles = jest
       .spyOn(service, 'getAllVehicles')
       .mockImplementation(async () => [new Vehicle()]);
+    spyOnGetVehicle = jest
+      .spyOn(service, 'getVehicle')
+      .mockImplementation(async () => new Vehicle());
   });
 
   it('Should be defined', () => {
@@ -36,5 +40,10 @@ describe('VehicleController', () => {
   it('Should call getAllVehicles on service when getAllVehicles is called', async () => {
     await controller.getAllVehicles();
     expect(spyOnGetAllVehicles).toHaveBeenCalled();
+  });
+
+  it('Should call getVehicle on service when getVehicle is called', async () => {
+    await controller.getVehicle('1');
+    expect(spyOnGetVehicle).toHaveBeenCalled();
   });
 });
