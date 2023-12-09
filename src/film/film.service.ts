@@ -8,6 +8,7 @@ import { People } from 'src/Database/People/People.entity';
 import { PeopleRepository } from 'src/Database/People/People.repository';
 import {
   getAllPeopleNames,
+  getCountedUniqueWords,
   getFilmsOpenings,
   getMostOftenPeople,
 } from './utils';
@@ -39,5 +40,11 @@ export class FilmService {
     const filmsOpenings = await getFilmsOpenings(this.filmRepository);
     const mostOftenPersons = getMostOftenPeople(peopleNames, filmsOpenings);
     return mostOftenPersons;
+  }
+
+  async getCountedOpeningsWords() {
+    const filmsOpenings = await getFilmsOpenings(this.filmRepository);
+    const countedWords = getCountedUniqueWords(filmsOpenings);
+    return countedWords;
   }
 }
