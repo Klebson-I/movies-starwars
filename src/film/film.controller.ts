@@ -10,6 +10,16 @@ export class FilmController {
     return this.filmService.getAllFilms();
   }
 
+  @Get('/people')
+  async getMostOftenPerson() {
+    return this.filmService.getMostOftenPerson();
+  }
+
+  @Get('/word')
+  async getCountedOpeningsWords() {
+    return this.filmService.getCountedOpeningsWords();
+  }
+
   @Get('/:id')
   async getFilm(@Param('id') id: string) {
     return this.filmService.getFilm(id);

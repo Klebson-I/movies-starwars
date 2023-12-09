@@ -18,6 +18,8 @@ import { StarshipRepository } from './Database/Starship/StarshipEntity.repositor
 import { Planet } from './Database/Planet/Planet.entity';
 import { PlanetRepository } from './Database/Planet/Planet.repository';
 import { CleanupModule } from './Cleanup/cleanup.module';
+import { People } from './Database/People/People.entity';
+import { PeopleRepository } from './Database/People/People.repository';
 
 @Module({
   imports: [
@@ -33,7 +35,7 @@ import { CleanupModule } from './Cleanup/cleanup.module';
       useNewUrlParser: true,
       synchronize: true,
       database: 'movies',
-      entities: [Film, Species, Vehicle, Starship, Planet],
+      entities: [Film, Species, Vehicle, Starship, Planet, People],
     }),
     TypeOrmModule.forFeature([
       FilmRepository,
@@ -41,6 +43,7 @@ import { CleanupModule } from './Cleanup/cleanup.module';
       VehicleRepository,
       StarshipRepository,
       PlanetRepository,
+      PeopleRepository,
     ]),
   ],
   controllers: [AppController],

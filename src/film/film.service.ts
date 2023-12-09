@@ -4,10 +4,21 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Film } from '../Database/Film/Film.entity';
 import {} from 'typeorm';
 import { DataHandler } from '../classes/DataHandler/DataHandler';
+import { People } from 'src/Database/People/People.entity';
+import { PeopleRepository } from 'src/Database/People/People.repository';
+import {
+  getAllPeopleNames,
+  getCountedUniqueWords,
+  getFilmsOpenings,
+  getMostOftenPeople,
+} from './utils';
 
 @Injectable()
 export class FilmService {
-  constructor(@InjectRepository(Film) private filmRepository: FilmRepository) {}
+  constructor(
+    @InjectRepository(Film) private filmRepository: FilmRepository,
+    @InjectRepository(People) private peopleRepository: PeopleRepository,
+  ) {}
 
   async getAllFilms() {
     const dataHandler = new DataHandler(this.filmRepository, 'FILM');
@@ -22,5 +33,18 @@ export class FilmService {
       id,
     );
     return film;
+  }
+
+  async getMostOftenPerson() {
+    const peopleNames = await getAllPeopleNames(this.peopleRepository);
+    const filmsOpenings = await getFilmsOpenings(this.filmRepository);
+    const mostOftenPersons = getMostOftenPeople(peopleNames, filmsOpenings);
+    return mostOftenPersons;
+  }
+
+  async getCountedOpeningsWords() {
+    const filmsOpenings = await getFilmsOpenings(this.filmRepository);
+    const countedWords = getCountedUniqueWords(filmsOpenings);
+    return countedWords;
   }
 }
