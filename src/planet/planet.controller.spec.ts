@@ -8,6 +8,7 @@ describe('PlanetController', () => {
   let controller: PlanetController;
   let service: PlanetService;
   let spyOnGetAllPlanets;
+  let spyOnGetPlanet;
 
   const planetRepository = {
     find: jest.fn(),
@@ -27,6 +28,9 @@ describe('PlanetController', () => {
     spyOnGetAllPlanets = jest
       .spyOn(service, 'getAllPlanets')
       .mockImplementation(async () => [new Planet()]);
+    spyOnGetPlanet = jest
+      .spyOn(service, 'getPlanet')
+      .mockImplementation(async () => new Planet());
   });
 
   it('Should be defined', () => {
@@ -36,5 +40,10 @@ describe('PlanetController', () => {
   it('Should call getAllPlanets on service when getAllPlanets is called', async () => {
     await controller.getAllPlanets();
     expect(spyOnGetAllPlanets).toHaveBeenCalled();
+  });
+
+  it('Should call getPlanet on service when getPlanet is called', async () => {
+    await controller.getPlanet('1');
+    expect(spyOnGetPlanet).toHaveBeenCalled();
   });
 });
