@@ -6,6 +6,7 @@ import { Vehicle } from '../../Database/Vehicle/Vehicle.entity';
 import { Starship } from '../../Database/Starship/Starship.entity';
 import { Planet } from '../../Database/Planet/Planet.entity';
 import { People } from 'src/Database/People/People.entity';
+import { HandleDataError } from 'src/Error';
 
 export class DataHandler {
   constructor(
@@ -22,7 +23,9 @@ export class DataHandler {
         return apiData;
       }
       return entities;
-    } catch (e) {}
+    } catch (e) {
+      throw new HandleDataError('Error when get data');
+    }
   }
 
   async getSingleDataFromCache(searchUrl: string, id: string) {
@@ -36,7 +39,9 @@ export class DataHandler {
         return apiData;
       }
       return entities[0];
-    } catch (e) {}
+    } catch (e) {
+      throw new HandleDataError('Error when get data');
+    }
   }
 
   async getSingleFromApi(id: string) {

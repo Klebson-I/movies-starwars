@@ -6,6 +6,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { Response } from 'express';
+import { HandleDataError } from 'src/Error';
 
 const { INTERNAL_SERVER_ERROR } = HttpStatus;
 
@@ -19,6 +20,12 @@ export class ErrorFilter implements ExceptionFilter {
       return response.status(status).json({
         error: exception.message,
         status: status,
+      });
+    }
+    if (exception instanceof HandleDataError) {
+      return response.status(404).json({
+        error: exception.message,
+        status: 404,
       });
     }
     response.status(INTERNAL_SERVER_ERROR).json({
