@@ -1,13 +1,13 @@
 import { StarApiHandler } from '../StarApiHandler/StarApiHandler';
-import { Film } from '../../Database/Film/film.entity';
+import { Film } from '../../Database/Film/Film.entity';
 import { InputRepository } from './types';
 import { Species } from '../../Database/Species/Species.entity';
 import { Vehicle } from '../../Database/Vehicle/Vehicle.entity';
 import { Starship } from '../../Database/Starship/Starship.entity';
 import { Planet } from '../../Database/Planet/Planet.entity';
 import { People } from 'src/Database/People/People.entity';
-import { HandleDataError } from 'src/Error';
-import { RepositoryType } from 'src/constants';
+import { HandleDataError } from 'src/classes/Error';
+import { RepositoryType } from 'src/constants/constants';
 
 export class DataHandler {
   constructor(

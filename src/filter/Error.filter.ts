@@ -6,7 +6,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { HandleDataError } from 'src/Error';
+import { HandleDataError } from 'src/classes/Error';
 
 const { INTERNAL_SERVER_ERROR } = HttpStatus;
 

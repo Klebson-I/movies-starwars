@@ -8,7 +8,6 @@ export class SchedulerService implements OnModuleInit {
 
   onModuleInit() {
     cron.schedule('55 21 * * *', async () => {
-      console.log('now');
       await this.cleanupService.cleanupCollections();
     });
   }

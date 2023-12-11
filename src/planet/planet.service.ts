@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Planet } from '../Database/Planet/Planet.entity';
 import { PlanetRepository } from '../Database/Planet/Planet.repository';
 import { DataHandler } from '../classes/DataHandler/DataHandler';
-import { RepositoryType } from 'src/constants';
+import { RepositoryType } from 'src/constants/constants';
 
 @Injectable()
 export class PlanetService {

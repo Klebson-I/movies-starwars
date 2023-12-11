@@ -2,8 +2,8 @@ import { FilmRepository } from 'src/Database/Film/Film.repository';
 import { People } from '../Database/People/People.entity';
 import { PeopleRepository } from '../Database/People/People.repository';
 import { DataHandler } from '../classes/DataHandler/DataHandler';
-import { Film } from '../Database/Film/film.entity';
-import { RepositoryType } from 'src/constants';
+import { Film } from '../Database/Film/Film.entity';
+import { RepositoryType } from 'src/constants/constants';
 
 export const getAllPeopleNames = async (
   repository: PeopleRepository,
