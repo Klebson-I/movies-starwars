@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Species } from '../Database/Species/Species.entity';
 import { SpeciesRepository } from '../Database/Species/Species.repository';
 import { DataHandler } from '../classes/DataHandler/DataHandler';
-import { RepositoryType } from 'src/constants/constants';
+import { RepositoryType } from '../constants/constants';
 
 @Injectable()
 export class SpeciesService {

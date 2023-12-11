@@ -12,7 +12,7 @@ import {
   getFilmsOpenings,
   getMostOftenPeople,
 } from './utils';
-import { RepositoryType } from 'src/constants/constants';
+import { RepositoryType } from '../constants/constants';
 
 @Injectable()
 export class FilmService {

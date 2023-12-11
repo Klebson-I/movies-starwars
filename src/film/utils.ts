@@ -3,7 +3,7 @@ import { People } from '../Database/People/People.entity';
 import { PeopleRepository } from '../Database/People/People.repository';
 import { DataHandler } from '../classes/DataHandler/DataHandler';
 import { Film } from '../Database/Film/Film.entity';
-import { RepositoryType } from 'src/constants/constants';
+import { RepositoryType } from '../constants/constants';
 
 export const getAllPeopleNames = async (
   repository: PeopleRepository,
