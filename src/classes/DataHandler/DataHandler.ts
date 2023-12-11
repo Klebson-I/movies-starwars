@@ -41,7 +41,7 @@ export class DataHandler {
       }
       return entities[0];
     } catch (e) {
-      throw new HandleDataError('Error when get data');
+      throw new HandleDataError('Error when get data, searched id not exist');
     }
   }
 
