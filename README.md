@@ -29,10 +29,11 @@ You should have NestJS installed globally.
 - npm run test
 
 ## Run by Docker:
-In project exist Dockerfile and docker-compose.yaml,
-however i cause some bug, and run by docker stop working (I would appreciate a help with that).
+In project exist Dockerfile and docker-compose.yaml.
 
 1. Navigate in wsl2 or another place where docker is installed to project directory.
 2. docker-compose up
+
+App should be running on port 3001 of your localhost.
 
 
