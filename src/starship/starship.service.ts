@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Starship } from '../Database/Starship/Starship.entity';
 import { StarshipRepository } from '../Database/Starship/StarshipEntity.repository';
 import { DataHandler } from '../classes/DataHandler/DataHandler';
-import { RepositoryType } from 'src/constants';
+import { RepositoryType } from 'src/constants/constants';
 
 @Injectable()
 export class StarshipService {

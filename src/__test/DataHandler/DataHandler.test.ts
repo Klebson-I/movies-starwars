@@ -2,7 +2,7 @@ import { StarApiHandler } from '../../classes/StarApiHandler/StarApiHandler';
 import { DataHandler } from '../../classes/DataHandler/DataHandler';
 import { Film } from '../../Database/Film/film.entity';
 import { emptyRepositoryMock, filledRepositoryMock } from './mocks';
-import { RepositoryType } from 'src/constants';
+import { RepositoryType } from 'src/constants/constants';
 
 const spyOnGetFilms = jest
   .spyOn(StarApiHandler.prototype, 'getFilms')
