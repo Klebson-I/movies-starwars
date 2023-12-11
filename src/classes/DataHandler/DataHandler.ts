@@ -98,7 +98,7 @@ export class DataHandler {
   }
 
   async saveToCache(
-    records: Film[] | Species[] | Vehicle[] | Starship[] | People[],
+    records: Film[] | Species[] | Vehicle[] | Starship[] | People[] | Planet[],
   ) {
     await this.repository.insertMany(records);
   }
