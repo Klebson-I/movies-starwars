@@ -1,5 +1,5 @@
 import { StarApiHandler } from '../StarApiHandler/StarApiHandler';
-import { Film } from '../../Database/Film/film.entity';
+import { Film } from '../../Database/Film/Film.entity';
 import { InputRepository } from './types';
 import { Species } from '../../Database/Species/Species.entity';
 import { Vehicle } from '../../Database/Vehicle/Vehicle.entity';

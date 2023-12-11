@@ -1,5 +1,5 @@
 import { People } from 'src/Database/People/People.entity';
-import { Film } from '../../Database/Film/film.entity';
+import { Film } from '../../Database/Film/Film.entity';
 import { Planet } from '../../Database/Planet/Planet.entity';
 import { Species } from '../../Database/Species/Species.entity';
 import { Starship } from '../../Database/Starship/Starship.entity';
