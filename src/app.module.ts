@@ -8,7 +8,7 @@ import { VehicleModule } from './vehicle/vehicle.module';
 import { StarshipModule } from './starship/starship.module';
 import { PlanetModule } from './planet/planet.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Film } from './Database/Film/film.entity';
+import { Film } from './Database/Film/Film.entity';
 import { FilmRepository } from './Database/Film/Film.repository';
 import { SpeciesRepository } from './Database/Species/Species.repository';
 import { VehicleRepository } from './Database/Vehicle/Vehicle.repository';
