@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { FilmController } from './film.controller';
 import { FilmService } from './film.service';
-import { Film } from '../Database/Film/film.entity';
+import { Film } from '../Database/Film/Film.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { People } from '../Database/People/People.entity';
 
