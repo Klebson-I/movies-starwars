@@ -7,11 +7,12 @@ import { Starship } from '../../Database/Starship/Starship.entity';
 import { Planet } from '../../Database/Planet/Planet.entity';
 import { People } from 'src/Database/People/People.entity';
 import { HandleDataError } from 'src/Error';
+import { RepositoryType } from 'src/constants';
 
 export class DataHandler {
   constructor(
     private repository: InputRepository,
-    private repositoryType: string,
+    private repositoryType: RepositoryType,
   ) {}
 
   async getDataFromCache() {
@@ -47,23 +48,23 @@ export class DataHandler {
 
   async getSingleFromApi(id: string) {
     const starApiHandler = new StarApiHandler();
-    if (this.repositoryType === 'FILM') {
+    if (this.repositoryType === RepositoryType.FILM) {
       const records = await starApiHandler.getSingleFilm(id);
       return records;
     }
-    if (this.repositoryType === 'SPECIES') {
+    if (this.repositoryType === RepositoryType.SPECIES) {
       const records = await starApiHandler.getSingleSpecies(id);
       return records;
     }
-    if (this.repositoryType === 'VEHICLE') {
+    if (this.repositoryType === RepositoryType.VEHICLE) {
       const records = await starApiHandler.getSingleVehicle(id);
       return records;
     }
-    if (this.repositoryType === 'STARSHIP') {
+    if (this.repositoryType === RepositoryType.STARSHIP) {
       const records = await starApiHandler.getSingleStarship(id);
       return records;
     }
-    if (this.repositoryType === 'PLANET') {
+    if (this.repositoryType === RepositoryType.PLANET) {
       const records = await starApiHandler.getSinglePlanet(id);
       return records;
     }
@@ -71,27 +72,27 @@ export class DataHandler {
 
   async getFromApi() {
     const starApiHandler = new StarApiHandler();
-    if (this.repositoryType === 'FILM') {
+    if (this.repositoryType === RepositoryType.FILM) {
       const records = await starApiHandler.getFilms();
       return records;
     }
-    if (this.repositoryType === 'SPECIES') {
+    if (this.repositoryType === RepositoryType.SPECIES) {
       const records = await starApiHandler.getSpecies();
       return records;
     }
-    if (this.repositoryType === 'VEHICLE') {
+    if (this.repositoryType === RepositoryType.VEHICLE) {
       const records = await starApiHandler.getVehicles();
       return records;
     }
-    if (this.repositoryType === 'STARSHIP') {
+    if (this.repositoryType === RepositoryType.STARSHIP) {
       const records = await starApiHandler.getStarships();
       return records;
     }
-    if (this.repositoryType === 'PLANET') {
+    if (this.repositoryType === RepositoryType.PLANET) {
       const records = await starApiHandler.getPlanets();
       return records;
     }
-    if (this.repositoryType === 'PEOPLE') {
+    if (this.repositoryType === RepositoryType.PEOPLE) {
       const records = await starApiHandler.getPeople();
       return records;
     }

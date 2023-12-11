@@ -12,6 +12,7 @@ import {
   getFilmsOpenings,
   getMostOftenPeople,
 } from './utils';
+import { RepositoryType } from 'src/constants';
 
 @Injectable()
 export class FilmService {
@@ -21,13 +22,19 @@ export class FilmService {
   ) {}
 
   async getAllFilms() {
-    const dataHandler = new DataHandler(this.filmRepository, 'FILM');
+    const dataHandler = new DataHandler(
+      this.filmRepository,
+      RepositoryType.FILM,
+    );
     const films = await dataHandler.getDataFromCache();
     return films;
   }
 
   async getFilm(id: string) {
-    const dataHandler = new DataHandler(this.filmRepository, 'FILM');
+    const dataHandler = new DataHandler(
+      this.filmRepository,
+      RepositoryType.FILM,
+    );
     const film = await dataHandler.getSingleDataFromCache(
       `https://swapi.dev/api/films/${id}/`,
       id,

@@ -3,11 +3,12 @@ import { People } from '../Database/People/People.entity';
 import { PeopleRepository } from '../Database/People/People.repository';
 import { DataHandler } from '../classes/DataHandler/DataHandler';
 import { Film } from '../Database/Film/film.entity';
+import { RepositoryType } from 'src/constants';
 
 export const getAllPeopleNames = async (
   repository: PeopleRepository,
 ): Promise<string[]> => {
-  const dataHandler = new DataHandler(repository, 'PEOPLE');
+  const dataHandler = new DataHandler(repository, RepositoryType.PEOPLE);
   const people: People[] = await dataHandler.getDataFromCache();
   const names = people.map(({ name }) => name);
   return names;
@@ -16,7 +17,7 @@ export const getAllPeopleNames = async (
 export const getFilmsOpenings = async (
   repository: FilmRepository,
 ): Promise<string[]> => {
-  const dataHandler = new DataHandler(repository, 'FILM');
+  const dataHandler = new DataHandler(repository, RepositoryType.FILM);
   const films: Film[] = await dataHandler.getDataFromCache();
   const openings = films.map(({ opening_crawl }) => opening_crawl);
   return openings;
