@@ -35,7 +35,8 @@ export class DataHandler {
       });
       if (!entities.length) {
         const apiData = await this.getSingleFromApi(id);
-        await this.saveSingleCache(apiData);
+        const allApiData = await this.getFromApi();
+        await this.saveToCache(allApiData);
         return apiData;
       }
       return entities[0];
@@ -100,9 +101,5 @@ export class DataHandler {
     records: Film[] | Species[] | Vehicle[] | Starship[] | People[],
   ) {
     await this.repository.insertMany(records);
-  }
-
-  async saveSingleCache(records: Film | Species | Vehicle | Starship | Planet) {
-    await this.repository.insert(records);
   }
 }
