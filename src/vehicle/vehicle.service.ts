@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Vehicle } from '../Database/Vehicle/Vehicle.entity';
 import { VehicleRepository } from '../Database/Vehicle/Vehicle.repository';
 import { DataHandler } from '../classes/DataHandler/DataHandler';
-import { RepositoryType } from 'src/constants/constants';
+import { RepositoryType } from '../constants/constants';
 
 @Injectable()
 export class VehicleService {
