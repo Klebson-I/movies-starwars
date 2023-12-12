@@ -7,7 +7,7 @@ import { RepositoryType } from '../../constants/constants';
 const spyOnGetFilms = jest
   .spyOn(StarApiHandler.prototype, 'getFilms')
   .mockImplementation(async function () {
-    return [{} as Film];
+    return [{ url: 'url' } as Film];
   });
 
 describe('Test DataHandler class', () => {
@@ -20,12 +20,13 @@ describe('Test DataHandler class', () => {
     expect(films).toEqual([{}]);
   });
 
-  it('Should call getFilms on StarApiHandler when data in repository doesnt exist', async () => {
+  it('Should call getFilms on StarApiHandler and return films when data in repository doesnt exist', async () => {
     const dataHandler = new DataHandler(
       emptyRepositoryMock,
       RepositoryType.FILM,
     );
-    await dataHandler.getDataFromCache();
+    const films = await dataHandler.getDataFromCache();
     expect(spyOnGetFilms).toHaveBeenCalled();
+    expect(films).toEqual([{ url: 'url' }]);
   });
 });
