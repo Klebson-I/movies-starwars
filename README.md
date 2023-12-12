@@ -13,6 +13,8 @@ onModuleInit() {
 
 replace 'minute' and 'hour' with real values to set time
 
+Endpoint documentation is contained in Endpoint.md file
+
 ## Run project
 You should have NestJS installed globally.
 
