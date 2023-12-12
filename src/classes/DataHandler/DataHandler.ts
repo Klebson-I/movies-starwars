@@ -25,6 +25,7 @@ export class DataHandler {
       }
       return entities;
     } catch (e) {
+      console.log(e);
       throw new HandleDataError('Error when get data');
     }
   }
@@ -48,54 +49,14 @@ export class DataHandler {
 
   async getSingleFromApi(id: string) {
     const starApiHandler = new StarApiHandler();
-    if (this.repositoryType === RepositoryType.FILM) {
-      const records = await starApiHandler.getSingleFilm(id);
-      return records;
-    }
-    if (this.repositoryType === RepositoryType.SPECIES) {
-      const records = await starApiHandler.getSingleSpecies(id);
-      return records;
-    }
-    if (this.repositoryType === RepositoryType.VEHICLE) {
-      const records = await starApiHandler.getSingleVehicle(id);
-      return records;
-    }
-    if (this.repositoryType === RepositoryType.STARSHIP) {
-      const records = await starApiHandler.getSingleStarship(id);
-      return records;
-    }
-    if (this.repositoryType === RepositoryType.PLANET) {
-      const records = await starApiHandler.getSinglePlanet(id);
-      return records;
-    }
+    const records = await starApiHandler.getSingle(this.repositoryType, id);
+    return records;
   }
 
   async getFromApi() {
     const starApiHandler = new StarApiHandler();
-    if (this.repositoryType === RepositoryType.FILM) {
-      const records = await starApiHandler.getFilms();
-      return records;
-    }
-    if (this.repositoryType === RepositoryType.SPECIES) {
-      const records = await starApiHandler.getSpecies();
-      return records;
-    }
-    if (this.repositoryType === RepositoryType.VEHICLE) {
-      const records = await starApiHandler.getVehicles();
-      return records;
-    }
-    if (this.repositoryType === RepositoryType.STARSHIP) {
-      const records = await starApiHandler.getStarships();
-      return records;
-    }
-    if (this.repositoryType === RepositoryType.PLANET) {
-      const records = await starApiHandler.getPlanets();
-      return records;
-    }
-    if (this.repositoryType === RepositoryType.PEOPLE) {
-      const records = await starApiHandler.getPeople();
-      return records;
-    }
+    const records = await starApiHandler.getAll(this.repositoryType);
+    return records;
   }
 
   async saveToCache(
