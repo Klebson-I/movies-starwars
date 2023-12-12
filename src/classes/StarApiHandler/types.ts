@@ -66,16 +66,24 @@ export interface GetPlanetDto {
   data: Planet;
 }
 
+export interface GetAllDto {
+  data: {
+    results: People[] | Film[] | Planet[] | Starship[] | Vehicle[] | Species[];
+    next?: string;
+  };
+}
+
+export interface GetSingleDto {
+  data: Planet | People | Starship | Species | Vehicle | Film;
+}
+
 export interface StarApiHandlerInterface {
-  getFilms: () => Promise<Film[]>;
-  getSpecies: () => Promise<Species[]>;
-  getVehicles: () => Promise<Vehicle[]>;
-  getStarships: () => Promise<Starship[]>;
-  getPlanets: () => Promise<Planet[]>;
-  getSingleFilm: (id: string) => Promise<Film>;
-  getSingleSpecies: (id: string) => Promise<Species>;
-  getSingleVehicle: (id: string) => Promise<Vehicle>;
-  getSingleStarship: (id: string) => Promise<Starship>;
-  getSinglePlanet: (id: string) => Promise<Planet>;
-  getPeople: (id: string) => Promise<People[]>;
+  getAll: (
+    urlSpecified: string,
+    nextUrl?: string,
+  ) => Promise<(Planet | People | Starship | Species | Vehicle | Film)[]>;
+  getSingle: (
+    urlSpecified: string,
+    id?: string,
+  ) => Promise<Planet | People | Starship | Species | Vehicle | Film>;
 }
