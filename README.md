@@ -15,6 +15,10 @@ replace 'minute' and 'hour' with real values to set time
 
 Endpoint documentation is contained in Endpoint.md file
 
+App is also available on: http://klebadev.westeurope.cloudapp.azure.com:3001/
+
+Hosted app is using the same mongodb atlas database as local dev version.
+
 ## Run project
 You should have NestJS installed globally.
 
