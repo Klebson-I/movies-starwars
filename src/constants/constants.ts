@@ -1,8 +1,8 @@
 export enum RepositoryType {
-  FILM = 'FILM',
-  PLANET = 'PLANET',
-  SPECIES = 'SPECIES',
-  VEHICLE = 'VEHICLE',
-  STARSHIP = 'STARSHIP',
-  PEOPLE = 'PEOPLE',
+  FILM = 'films',
+  PLANET = 'planets',
+  SPECIES = 'species',
+  VEHICLE = 'vehicles',
+  STARSHIP = 'starships',
+  PEOPLE = 'people',
 }

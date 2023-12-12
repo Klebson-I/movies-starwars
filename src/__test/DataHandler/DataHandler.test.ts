@@ -5,7 +5,7 @@ import { emptyRepositoryMock, filledRepositoryMock } from './mocks';
 import { RepositoryType } from '../../constants/constants';
 
 const spyOnGetFilms = jest
-  .spyOn(StarApiHandler.prototype, 'getFilms')
+  .spyOn(StarApiHandler.prototype, 'getAll')
   .mockImplementation(async function () {
     return [{ url: 'url' } as Film];
   });
@@ -20,7 +20,7 @@ describe('Test DataHandler class', () => {
     expect(films).toEqual([{}]);
   });
 
-  it('Should call getFilms on StarApiHandler and return films when data in repository doesnt exist', async () => {
+  it('Should call getAll on StarApiHandler and return films when data in repository doesnt exist', async () => {
     const dataHandler = new DataHandler(
       emptyRepositoryMock,
       RepositoryType.FILM,
