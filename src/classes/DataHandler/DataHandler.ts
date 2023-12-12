@@ -25,7 +25,6 @@ export class DataHandler {
       }
       return entities;
     } catch (e) {
-      console.log(e);
       throw new HandleDataError('Error when get data');
     }
   }

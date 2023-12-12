@@ -34,8 +34,12 @@ Return film object
 #### /film/people
 Return single string or array of most often occured names in film openings
 
+Example: 'Luke' or ['Luke', 'Dooku']
+
 #### /film/word
 Return array of arrays that contains word and its occurance times in film openings
+
+Example: [['it', 3], ['hello', 5], ['jedi', 10]]
 
 # Planet
 
