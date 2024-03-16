@@ -7,7 +7,7 @@ export class SchedulerService implements OnModuleInit {
   constructor(private readonly cleanupService: CleanupService) {}
 
   onModuleInit() {
-    cron.schedule('20 9 * * *', async () => {
+    cron.schedule('25 09 * * *', async () => {
       await this.cleanupService.cleanupCollections();
     });
   }

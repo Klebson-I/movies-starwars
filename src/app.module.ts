@@ -31,10 +31,12 @@ import { PeopleRepository } from './Database/People/People.repository';
     CleanupModule,
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb+srv://lukaszkleba:devil1234@cluster0.xerdy.mongodb.net/?retryWrites=true&w=majority',
+      url: process.env.DATABASE_URL,
+      username: process.env.MONGO_INITDB_ROOT_USERNAME,
+      password: process.env.MONGO_INITDB_ROOT_PASSWORD,
       useNewUrlParser: true,
       synchronize: true,
-      database: 'movies',
+      database: process.env.MONGODB_DATABASE,
       entities: [Species, Film, Vehicle, Starship, Planet, People],
     }),
     TypeOrmModule.forFeature([

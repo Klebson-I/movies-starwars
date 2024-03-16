@@ -1,6 +1,18 @@
 version: '3.8'
 
 services:
+  mongo:
+    build:
+      context: .
+      dockerfile: Dockerfile.mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGODB_DATABASE: movies
+      DATABASE_URL: mongodb://mongo:27017/
+    restart: always
+    ports:
+      - 27017:27017
   my_node_app:
     build:
       context: .
