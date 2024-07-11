@@ -18,7 +18,7 @@ You should have NestJS installed globally.
 
 ### Run dev version:
 - npm i
-- npm run start:dev
+- npm run start:dev ( you need to have mongodb running locally)
 
 ### Run prod version:
 - npm i
@@ -28,12 +28,15 @@ You should have NestJS installed globally.
 ### Run tests:
 - npm run test
 
-## Run by Docker:
+## Run by Docker (with mongodb automatically set):
 In project exist Dockerfile and docker-compose.yaml.
 
 1. Navigate in wsl2 or another place where docker is installed to project directory.
-2. docker-compose up
+2. docker compose build
+3. docker compose up -d
 
 App should be running on port 3001 of your localhost.
+If some error occurs, create docker network manually with:
+- docker network create app_net
 
 
