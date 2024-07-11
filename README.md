@@ -39,4 +39,9 @@ App should be running on port 3001 of your localhost.
 If some error occurs, create docker network manually with:
 - docker network create app_net
 
+# Api docs:
+### There is container in project that sets swagger on localhost:8081.
+### After docker compose up should be available.
+### Swagger is not set to work with live requests, its used just to make visualization of examples.
+
 
