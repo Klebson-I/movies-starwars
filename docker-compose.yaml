@@ -30,6 +30,17 @@ services:
       - "3001:3001"
     depends_on:
       - mongo
+  swagger:
+    image: swaggerapi/swagger-ui
+    container_name: swagger
+    networks:
+      - app_net
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./swagger:/usr/share/nginx/html/swagger
+    environment:
+      SWAGGER_JSON: /usr/share/nginx/html/swagger/openapi.json
 networks:
   app_net:
     external: true

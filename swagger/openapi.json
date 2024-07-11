@@ -1,0 +1,1011 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "My API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/starship": {
+      "get": {
+        "summary": "Get starships",
+        "responses": {
+          "200": {
+            "description": "A list of starships",
+            "content": {
+              "application/json": {
+                "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "669026bf93c051d7bfe95128"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "CR90 corvette"
+                    },
+                    "model": {
+                      "type": "string",
+                      "example": "CR90 corvette"
+                    },
+                    "starship_class": {
+                      "type": "string",
+                      "example": "corvette"
+                    },
+                    "manufacturer": {
+                      "type": "string",
+                      "example": "Corellian Engineering Corporation"
+                    },
+                    "cost_in_credits": {
+                      "type": "string",
+                      "example": "3500000"
+                    },
+                    "length": {
+                      "type": "string",
+                      "example": "150"
+                    },
+                    "crew": {
+                      "type": "string",
+                      "example": "30-165"
+                    },
+                    "passengers": {
+                      "type": "string",
+                      "example": "600"
+                    },
+                    "max_atmosphering_speed": {
+                      "type": "string",
+                      "example": "950"
+                    },
+                    "hyperdrive_rating": {
+                      "type": "string",
+                      "example": "2.0"
+                    },
+                    "MGLT": {
+                      "type": "string",
+                      "example": "60"
+                    },
+                    "cargo_capacity": {
+                      "type": "string",
+                      "example": "3000000"
+                    },
+                    "consumables": {
+                      "type": "string",
+                      "example": "1 year"
+                    },
+                    "films": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "https://swapi.dev/api/films/1/"
+                      }
+                    },
+                    "pilots": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "https://swapi.dev/api/people/13/"
+                      }
+                    },
+                    "url": {
+                      "type": "string",
+                      "example": "https://swapi.dev/api/starships/2/"
+                    },
+                    "created": {
+                      "type": "string",
+                      "example": "2014-12-10T14:20:33.369000Z"
+                    },
+                    "edited": {
+                      "type": "string",
+                      "example": "2014-12-20T21:23:49.867000Z"
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "sample": {
+                  "summary": "A sample starship",
+                  "value": [
+                    {
+                      "id": "669026bf93c051d7bfe95128",
+                      "name": "CR90 corvette",
+                      "model": "CR90 corvette",
+                      "starship_class": "corvette",
+                      "manufacturer": "Corellian Engineering Corporation",
+                      "cost_in_credits": "3500000",
+                      "length": "150",
+                      "crew": "30-165",
+                      "passengers": "600",
+                      "max_atmosphering_speed": "950",
+                      "hyperdrive_rating": "2.0",
+                      "MGLT": "60",
+                      "cargo_capacity": "3000000",
+                      "consumables": "1 year",
+                      "films": [
+                        "https://swapi.dev/api/films/1/",
+                        "https://swapi.dev/api/films/3/",
+                        "https://swapi.dev/api/films/6/"
+                      ],
+                      "pilots": [],
+                      "url": "https://swapi.dev/api/starships/2/",
+                      "created": "2014-12-10T14:20:33.369000Z",
+                      "edited": "2014-12-20T21:23:49.867000Z"
+                    }
+                  ]
+                }
+              }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/starship/{id}": {
+      "get": {
+        "summary": "Retrieve a single starship by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A single starship",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "669026bf93c051d7bfe95128"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "CR90 corvette"
+                    },
+                    "model": {
+                      "type": "string",
+                      "example": "CR90 corvette"
+                    },
+                    "starship_class": {
+                      "type": "string",
+                      "example": "corvette"
+                    },
+                    "manufacturer": {
+                      "type": "string",
+                      "example": "Corellian Engineering Corporation"
+                    },
+                    "cost_in_credits": {
+                      "type": "string",
+                      "example": "3500000"
+                    },
+                    "length": {
+                      "type": "string",
+                      "example": "150"
+                    },
+                    "crew": {
+                      "type": "string",
+                      "example": "30-165"
+                    },
+                    "passengers": {
+                      "type": "string",
+                      "example": "600"
+                    },
+                    "max_atmosphering_speed": {
+                      "type": "string",
+                      "example": "950"
+                    },
+                    "hyperdrive_rating": {
+                      "type": "string",
+                      "example": "2.0"
+                    },
+                    "MGLT": {
+                      "type": "string",
+                      "example": "60"
+                    },
+                    "cargo_capacity": {
+                      "type": "string",
+                      "example": "3000000"
+                    },
+                    "consumables": {
+                      "type": "string",
+                      "example": "1 year"
+                    },
+                    "films": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "https://swapi.dev/api/films/1/"
+                      }
+                    },
+                    "pilots": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "url": {
+                      "type": "string",
+                      "example": "https://swapi.dev/api/starships/2/"
+                    },
+                    "created": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2014-12-10T14:20:33.369000Z"
+                    },
+                    "edited": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2014-12-20T21:23:49.867000Z"
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "summary": "CR90 Corvette",
+                    "value": {
+                      "id": "669026bf93c051d7bfe95128",
+                      "name": "CR90 corvette",
+                      "model": "CR90 corvette",
+                      "starship_class": "corvette",
+                      "manufacturer": "Corellian Engineering Corporation",
+                      "cost_in_credits": "3500000",
+                      "length": "150",
+                      "crew": "30-165",
+                      "passengers": "600",
+                      "max_atmosphering_speed": "950",
+                      "hyperdrive_rating": "2.0",
+                      "MGLT": "60",
+                      "cargo_capacity": "3000000",
+                      "consumables": "1 year",
+                      "films": [
+                        "https://swapi.dev/api/films/1/",
+                        "https://swapi.dev/api/films/3/",
+                        "https://swapi.dev/api/films/6/"
+                      ],
+                      "pilots": [],
+                      "url": "https://swapi.dev/api/starships/2/",
+                      "created": "2014-12-10T14:20:33.369000Z",
+                      "edited": "2014-12-20T21:23:49.867000Z"
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "An error of single starship",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "error": {
+                        "type": "string",
+                        "example": "Error when get data, searched id not exist"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+      }
+    }
+    },
+    "/planet": {
+      "get": {
+        "summary": "Get planets",
+        "responses": {
+          "200": {
+            "description": "A list of planets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "example": "1"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Tatooine"
+                      },
+                      "rotation_period": {
+                        "type": "string",
+                        "example": "23"
+                      },
+                      "orbital_period": {
+                        "type": "string",
+                        "example": "304"
+                      },
+                      "diameter": {
+                        "type": "string",
+                        "example": "10465"
+                      },
+                      "climate": {
+                        "type": "string",
+                        "example": "arid"
+                      },
+                      "gravity": {
+                        "type": "string",
+                        "example": "1 standard"
+                      },
+                      "terrain": {
+                        "type": "string",
+                        "example": "desert"
+                      },
+                      "surface_water": {
+                        "type": "string",
+                        "example": "1"
+                      },
+                      "population": {
+                        "type": "string",
+                        "example": "200000"
+                      },
+                      "residents": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": "https://swapi.dev/api/people/1/"
+                        }
+                      },
+                      "films": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": "https://swapi.dev/api/films/1/"
+                        }
+                      },
+                      "created": {
+                        "type": "string",
+                        "example": "2014-12-09T13:50:49.641000Z"
+                      },
+                      "edited": {
+                        "type": "string",
+                        "example": "2014-12-20T20:58:18.411000Z"
+                      },
+                      "url": {
+                        "type": "string",
+                        "example": "https://swapi.dev/api/planets/1/"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/planet/{id}": {
+      "get": {
+        "summary": "Retrieve a single planet by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A single planet",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "1"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Tatooine"
+                    },
+                    "rotation_period": {
+                      "type": "string",
+                      "example": "23"
+                    },
+                    "orbital_period": {
+                      "type": "string",
+                      "example": "304"
+                    },
+                    "diameter": {
+                      "type": "string",
+                      "example": "10465"
+                    },
+                    "climate": {
+                      "type": "string",
+                      "example": "arid"
+                    },
+                    "gravity": {
+                      "type": "string",
+                      "example": "1 standard"
+                    },
+                    "terrain": {
+                      "type": "string",
+                      "example": "desert"
+                    },
+                    "surface_water": {
+                      "type": "string",
+                      "example": "1"
+                    },
+                    "population": {
+                      "type": "string",
+                      "example": "200000"
+                    },
+                    "residents": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "films": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "created": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2014-12-09T13:50:49.641000Z"
+                    },
+                    "edited": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2014-12-20T20:58:18.411000Z"
+                    },
+                    "url": {
+                      "type": "string",
+                      "example": "https://swapi.dev/api/planets/1/"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Planet not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Error when get data, searched id not exist"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vehicles": {
+      "get": {
+        "summary": "Get information about Star Wars vehicles",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Vehicle"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vehicles/{id}": {
+      "get": {
+        "summary": "Get details of a specific Star Wars vehicle",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 4
+            },
+            "description": "ID of the vehicle to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vehicle"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Vehicle not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Error when get data, searched id not exist"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/species": {
+      "get": {
+        "summary": "Get all Star Wars species",
+        "responses": {
+          "200": {
+            "description": "List of Star Wars species",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Species"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/species/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "ID of the species"
+        }
+      ],
+      "get": {
+        "summary": "Get details of a specific Star Wars species",
+        "responses": {
+          "200": {
+            "description": "Details of the Star Wars species",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Species"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Species not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Error when get data, searched id not exist"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/film": {
+      "get": {
+        "summary": "Get list of Star Wars films",
+        "responses": {
+          "200": {
+            "description": "List of Star Wars films",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "example": "A New Hope"
+                      },
+                      "episode_id": {
+                        "type": "integer",
+                        "example": 4
+                      },
+                      "opening_crawl": {
+                        "type": "string",
+                        "example": "It is a period of civil war. Rebel spaceships, striking from a hidden base..."
+                      },
+                      "director": {
+                        "type": "string",
+                        "example": "George Lucas"
+                      },
+                      "producer": {
+                        "type": "string",
+                        "example": "Gary Kurtz, Rick McCallum"
+                      },
+                      "release_date": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "1977-05-25"
+                      },
+                      "characters": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "format": "url"
+                        }
+                      },
+                      "planets": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "format": "url"
+                        }
+                      },
+                      "starships": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "format": "url"
+                        }
+                      },
+                      "vehicles": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "format": "url"
+                        }
+                      },
+                      "species": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "format": "url"
+                        }
+                      },
+                      "created": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2014-12-10T14:23:31.880Z"
+                      },
+                      "edited": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2014-12-20T19:49:45.256Z"
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "url",
+                        "example": "https://swapi.dev/api/films/1/"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/film/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "example": 1
+          },
+          "description": "ID of the film to retrieve"
+        }
+      ],
+      "get": {
+        "summary": "Get details of a specific Star Wars film",
+        "responses": {
+          "200": {
+            "description": "Details of the Star Wars film",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "example": "A New Hope"
+                    },
+                    "episode_id": {
+                      "type": "integer",
+                      "example": 4
+                    },
+                    "opening_crawl": {
+                      "type": "string",
+                      "example": "It is a period of civil war. Rebel spaceships, striking from a hidden base..."
+                    },
+                    "director": {
+                      "type": "string",
+                      "example": "George Lucas"
+                    },
+                    "producer": {
+                      "type": "string",
+                      "example": "Gary Kurtz, Rick McCallum"
+                    },
+                    "release_date": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "1977-05-25"
+                    },
+                    "characters": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "url"
+                      }
+                    },
+                    "planets": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "url"
+                      }
+                    },
+                    "starships": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "url"
+                      }
+                    },
+                    "vehicles": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "url"
+                      }
+                    },
+                    "species": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "url"
+                      }
+                    },
+                    "created": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2014-12-10T14:23:31.880Z"
+                    },
+                    "edited": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2014-12-20T19:49:45.256Z"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "url",
+                      "example": "https://swapi.dev/api/films/1/"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Film not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Error when get data, searched id not exist"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Vehicle": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Sand Crawler"
+          },
+          "model": {
+            "type": "string",
+            "example": "Digger Crawler"
+          },
+          "vehicle_class": {
+            "type": "string",
+            "example": "wheeled"
+          },
+          "manufacturer": {
+            "type": "string",
+            "example": "Corellia Mining Corporation"
+          },
+          "length": {
+            "type": "string",
+            "example": "36.8"
+          },
+          "cost_in_credits": {
+            "type": "string",
+            "example": "150000"
+          },
+          "crew": {
+            "type": "string",
+            "example": "46"
+          },
+          "passengers": {
+            "type": "string",
+            "example": "30"
+          },
+          "max_atmosphering_speed": {
+            "type": "string",
+            "example": "30"
+          },
+          "cargo_capacity": {
+            "type": "string",
+            "example": "50000"
+          },
+          "consumables": {
+            "type": "string",
+            "example": "2 months"
+          },
+          "films": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://swapi.dev/api/films/1/"
+            }
+          },
+          "pilots": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://swapi.dev/api/people/1/"
+            }
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://swapi.dev/api/vehicles/4/"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2014-12-10T15:36:25.724000Z"
+          },
+          "edited": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2014-12-20T21:30:21.661000Z"
+          }
+        }
+      },
+      "Species": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "669032f65c307998669ab64b"
+          },
+          "name": {
+            "type": "string",
+            "example": "Human"
+          },
+          "classification": {
+            "type": "string",
+            "example": "mammal"
+          },
+          "designation": {
+            "type": "string",
+            "example": "sentient"
+          },
+          "average_height": {
+            "type": "string",
+            "example": "180"
+          },
+          "average_lifespan": {
+            "type": "string",
+            "example": "120"
+          },
+          "eye_colors": {
+            "type": "string",
+            "example": "brown, blue, green, hazel, grey, amber"
+          },
+          "hair_colors": {
+            "type": "string",
+            "example": "blonde, brown, black, red"
+          },
+          "skin_colors": {
+            "type": "string",
+            "example": "caucasian, black, asian, hispanic"
+          },
+          "language": {
+            "type": "string",
+            "example": "Galactic Basic"
+          },
+          "homeworld": {
+            "type": "string",
+            "example": "https://swapi.dev/api/planets/9/"
+          },
+          "people": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "https://swapi.dev/api/people/66/"
+            }
+          },
+          "films": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "https://swapi.dev/api/films/1/"
+            }
+          },
+          "url": {
+            "type": "string",
+            "example": "https://swapi.dev/api/species/1/"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2014-12-10T13:52:11.567000Z"
+          },
+          "edited": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2014-12-20T21:36:42.136000Z"
+          }
+        }
+      }
+    }
+  }
+}
