@@ -20,6 +20,19 @@ import { PlanetRepository } from './Database/Planet/Planet.repository';
 import { CleanupModule } from './Cleanup/cleanup.module';
 import { People } from './Database/People/People.entity';
 import { PeopleRepository } from './Database/People/People.repository';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+
+const {
+  MONGO_INITDB_ROOT_USERNAME,
+  MONGO_INITDB_ROOT_PASSWORD,
+  MONGODB_DATABASE,
+} = process.env;
+
+// When you work with mongo locally swith "mongo" in URL to "localhost",
+// provided value is readable for docker
+
 
 @Module({
   imports: [
@@ -31,12 +44,12 @@ import { PeopleRepository } from './Database/People/People.repository';
     CleanupModule,
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: process.env.DATABASE_URL,
-      username: process.env.MONGO_INITDB_ROOT_USERNAME,
-      password: process.env.MONGO_INITDB_ROOT_PASSWORD,
+      url: `mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongo:27017/${MONGODB_DATABASE}?authSource=admin`,
+      username: MONGO_INITDB_ROOT_USERNAME,
+      password: MONGO_INITDB_ROOT_PASSWORD,
       useNewUrlParser: true,
       synchronize: true,
-      database: process.env.MONGODB_DATABASE,
+      database: MONGODB_DATABASE,
       entities: [Species, Film, Vehicle, Starship, Planet, People],
     }),
     TypeOrmModule.forFeature([

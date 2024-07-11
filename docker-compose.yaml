@@ -5,17 +5,31 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.mongo
+    command:
+      - --storageEngine
+      - wiredTiger
+      - --auth
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: movies
       MONGODB_DATABASE: movies
       DATABASE_URL: mongodb://mongo:27017/
     restart: always
+    networks:
+      - app_net
     ports:
       - 27017:27017
   my_node_app:
     build:
       context: .
       dockerfile: Dockerfile
+    networks:
+      - app_net
     ports:
       - "3001:3001"
+    depends_on:
+      - mongo
+networks:
+  app_net:
+    external: true
